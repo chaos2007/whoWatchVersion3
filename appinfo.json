@@ -7,7 +7,25 @@
     "longName": "DoctoWhoWatch3",
     "projectType": "native",
     "resources": {
-        "media": []
+        "media": [
+            {
+                "file": "images/Doctor_Who_Logo2.png",
+                "name": "IMAGE_DOCTOR_WHO_LOGO",
+                "type": "png"
+            },
+            {
+                "characterRegex": "[0-9:. a-zA-Z]",
+                "file": "fonts/DoctorWhat.ttf",
+                "name": "FONT_DOCTOR_WHO_30",
+                "type": "font"
+            },
+            {
+                "characterRegex": "[0-9:. ]",
+                "file": "fonts/DoctorWhat.ttf",
+                "name": "FONT_DOCTOR_WHO_56",
+                "type": "font"
+            }
+        ]
     },
     "sdkVersion": "3",
     "shortName": "DoctoWhoWatch3",
