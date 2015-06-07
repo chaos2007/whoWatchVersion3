@@ -12,13 +12,14 @@ static GBitmap *s_background_bitmap;
 #ifdef PBL_COLOR
     #define TIME_COLOR GColorBlue
     #define DATE_COLOR GColorBlue
-    #define BACKGROUND GColorVividCerulean
+    #define BACKGROUND GColorBlack
+    #define TEXT_BACKGROUND GColorBlack
 #else
     #define TIME_COLOR GColorWhite
     #define DATE_COLOR GColorWhite
     #define BACKGROUND GColorBlack
+    #define TEXT_BACKGROUND GColorClear
 #endif
-
 
 static void update_time() {
   // Get a tm structure
@@ -47,21 +48,23 @@ static void update_time() {
 }
 
 static void main_window_load(Window *window) {
+  window_set_background_color(window, BACKGROUND);
+
   // Create GBitmap, then set to created BitmapLayer
   s_background_bitmap = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_DOCTOR_WHO_LOGO);
-  s_background_layer = bitmap_layer_create(GRect(0, 0, 140, 82));
+  s_background_layer = bitmap_layer_create(GRect(0, 6, 144, 60));
   bitmap_layer_set_bitmap(s_background_layer, s_background_bitmap);
   bitmap_layer_set_background_color(s_background_layer, BACKGROUND);
     
   // Create time TextLayer
-  s_time_layer = text_layer_create(GRect(0, 82, 144, 56));
-  text_layer_set_background_color(s_time_layer, BACKGROUND);
+  s_time_layer = text_layer_create(GRect(0, 66, 144, 56));
+  text_layer_set_background_color(s_time_layer, TEXT_BACKGROUND);
   text_layer_set_text_color(s_time_layer, TIME_COLOR);
   text_layer_set_text(s_time_layer, "00:00");
    
   // Create date TextLayer  
-  s_date_layer = text_layer_create(GRect(0, 138, 144, 30));
-  text_layer_set_background_color(s_date_layer, BACKGROUND);
+  s_date_layer = text_layer_create(GRect(0, 122, 144, 30));
+  text_layer_set_background_color(s_date_layer, TEXT_BACKGROUND);
   text_layer_set_text_color(s_date_layer, DATE_COLOR);
   text_layer_set_text(s_date_layer, "Thu Aug 23");  
 
@@ -80,6 +83,7 @@ static void main_window_load(Window *window) {
   layer_add_child(window_get_root_layer(window), bitmap_layer_get_layer(s_background_layer));
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_time_layer));
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_date_layer));
+
 
   //layer_set_hidden(inverter_layer_get_layer(inverter_layer), false);
   // Make sure the time is displayed from the start

@@ -9,7 +9,7 @@
     "resources": {
         "media": [
             {
-                "file": "images/Doctor_Who_Logo2.png",
+                "file": "images/Doctor_Who_Logo.png",
                 "name": "IMAGE_DOCTOR_WHO_LOGO",
                 "type": "png"
             },
