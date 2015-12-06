@@ -21,6 +21,16 @@ static GBitmap *s_background_bitmap;
     #define TEXT_BACKGROUND GColorClear
 #endif
 
+void update_battery(BatteryChargeState charge) {
+      /*static char buffer[] = "Thu Aug 23";
+  if(charge.is_charging) {
+      snprintf(buffer, sizeof("Thu Aug 23"), "Charging");
+  } else {
+      snprintf(buffer, sizeof("Thu Aug 23"), "%d %%", charge.charge_percent);
+  }
+  text_layer_set_text(s_date_layer, buffer);*/
+}
+
 static void update_time() {
   // Get a tm structure
   time_t temp = time(NULL); 
@@ -112,6 +122,9 @@ static void main_window_unload(Window *window) {
 static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
   update_time();
 }
+static void battery_handler(BatteryChargeState batteryCharge) {
+  update_battery(batteryCharge);
+}
   
 static void init() {
   // Create main Window element and assign to pointer
@@ -128,6 +141,7 @@ static void init() {
   
   // Register with TickTimerService
   tick_timer_service_subscribe(MINUTE_UNIT, tick_handler);
+    battery_state_service_subscribe( battery_handler );
 }
 
 static void deinit() {

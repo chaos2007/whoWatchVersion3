@@ -14,13 +14,13 @@
                 "type": "png"
             },
             {
-                "characterRegex": "[0-9:. a-zA-Z]",
+                "characterRegex": "[0-9:. a-zA-Z%]",
                 "file": "fonts/DoctorWhat.ttf",
                 "name": "FONT_DOCTOR_WHO_30",
                 "type": "font"
             },
             {
-                "characterRegex": "[0-9:. ]",
+                "characterRegex": "[0-9:. %]",
                 "file": "fonts/DoctorWhat.ttf",
                 "name": "FONT_DOCTOR_WHO_56",
                 "type": "font"
@@ -34,7 +34,6 @@
         "basalt"
     ],
     "uuid": "71b4c023-8b6e-4db1-8308-a2b8f31bfb01",
-    "versionCode": 1,
     "versionLabel": "1.0",
     "watchapp": {
         "watchface": true
