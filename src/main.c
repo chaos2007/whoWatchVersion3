@@ -1,9 +1,9 @@
 #include <pebble.h>
   
 static Window *s_main_window;
-static GFont *s_time_font;
+static GFont s_time_font;
 static TextLayer *s_time_layer;
-static GFont *s_date_font;
+static GFont s_date_font;
 static TextLayer *s_date_layer;
 static BitmapLayer *s_background_layer;
 static GBitmap *s_background_bitmap;
